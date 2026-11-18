@@ -1,0 +1,288 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    grid-template-rows: 80px;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 30px;
+    background: #234e70;
+    color: white;
+}
+
+.logo {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header nav a:hover {
+    background: #16364d;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 400px;
+    grid-template-areas: "imagen texto";
+    gap: 20px;
+    padding: 30px;
+    background: white;
+}
+
+.hero img {
+    grid-area: imagen;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-texto {
+    grid-area: texto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 30px;
+}
+
+.boton {
+    background: #234e70;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: scale(1.05);
+}
+
+.programacion,
+.galeria,
+.contacto {
+    padding: 40px 30px;
+}
+
+.programacion h2,
+.galeria h2,
+.contacto h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tarjetas article {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.tarjetas article:hover {
+    transform: translateY(-5px);
+}
+
+.tarjetas article:first-child {
+    grid-column: span 2;
+}
+
+.imagenes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.imagenes img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.imagenes img:hover {
+    transform: scale(1.03);
+}
+
+.contacto {
+    background: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: auto;
+}
+
+input,
+textarea,
+button {
+    font-family: Arial, sans-serif;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+button {
+    background: #234e70;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #16364d;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #234e70;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        text-align: center;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "imagen"
+            "texto";
+    }
+
+    .hero img {
+        height: 250px;
+    }
+
+    .hero-texto {
+        padding: 20px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas article:first-child {
+        grid-column: span 1;
+    }
+
+    .imagenes {
+        grid-template-columns: 1fr;
+    }
+
+    .imagenes img {
+        height: auto;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+/* TABLET */
+
+@media (min-width: 601px) and (max-width: 991px) {
+
+    header {
+        grid-template-columns: 70px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    header nav {
+        grid-column: 1 / -1;
+        flex-wrap: wrap;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tarjetas article:first-child {
+        grid-column: span 2;
+    }
+
+    .imagenes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* PC */
+
+@media (min-width: 992px) {
+
+    .tarjetas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .imagenes {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
